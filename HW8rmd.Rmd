@@ -1,0 +1,17 @@
+---
+title: "HW8"
+author: "Dillon"
+date: "11/15/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.width = 6.5, fig.height = 8)
+library(here)
+library(rio)
+library(tidyverse)
+library(janitor)
+
+star <- import(here("Data", "star.csv")) %>% clean_names()
+
+```
