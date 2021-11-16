@@ -1,6 +1,6 @@
 ---
 title: "HW8"
-author: "Dillon"
+author: "Dillon, Eliott, Simone"
 date: "11/15/2021"
 output: pdf_document
 ---
@@ -14,4 +14,19 @@ library(janitor)
 
 star <- import(here("Data", "star.csv")) %>% clean_names()
 
+
 ```
+
+```{r}
+View(star)
+```
+
+```{r commit 3}
+star %>% 
+  group_by(sex, frl) %>% 
+  summarize(math_mean = mean(tmathss, na.rm = TRUE),
+            math_sd = sd(tmathss, na.rm = TRUE),
+            rdg_mean = mean(treadss, na.rm = TRUE), 
+            rdg_sd = sd(treadss, na.rm = TRUE))
+```
+The table shows the mean math and reading scores separated by sex and frl (?), as well as the standard deviations for these scores. 
