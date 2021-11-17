@@ -3,6 +3,8 @@ title: "HW8"
 author: "Dillon, Eliott, Simone"
 date: "11/15/2021"
 output: pdf_document
+bibliography: bib.bib
+nocite: '@*'
 ---
 
 ```{r setup, include=FALSE}
@@ -28,5 +30,11 @@ star %>%
             math_sd = sd(tmathss, na.rm = TRUE),
             rdg_mean = mean(treadss, na.rm = TRUE), 
             rdg_sd = sd(treadss, na.rm = TRUE))
+
 ```
-The table shows the mean math and reading scores separated by sex and frl (?), as well as the standard deviations for these scores. 
+The table shows the mean math and reading scores separated by sex and frl (?), as well as the standard deviations for these scores.
+
+Two of my favorite citation examples in different formats are @hammitt_admissible_2013 and of course [@barsky_preference_1997]. Bangers.
+
+\newpage
+**REFERENCES**
