@@ -5,6 +5,8 @@ date: "11/15/2021"
 output: pdf_document
 bibliography: bib.bib
 nocite: '@*'
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -38,3 +40,31 @@ Two of my favorite citation examples in different formats are @hammitt_admissibl
 
 \newpage
 **REFERENCES**
+
+### Commit 4 Graph Description
+
+The graph shows that the more experienced a teacher is in terms of number of years of teaching, the higher level of math scores students will achieve regardless of whether they are receiving a free/reduced lunch or a paid meal, compared to students under less experienced teachers. In this sense, we can interpret lunch type as a proxy for socioeconomic status (i.e. free/reduced = low income; paid = middle - to high income). While the level of teacher experience doesn't minimize the achievement gap in math scores between students receiving a free/reduced lunch vs. paid, it appears that teacher experience has a positive net impact on both groups. In other words, to improve math scores globally, teacher experience is key. However, to reduce math score inequity, additional interventions may be needed. 
+
+```{r commit 4}
+
+
+star$frl <- factor(star$frl, levels = c("yes", "no"))
+
+
+plot<- star %>% 
+  ggplot(aes(totexp, tmathss)) +
+  geom_point(color = "gray", size = 1.5) +
+ geom_smooth(aes(group = frl, color = frl), method="lm", size=1.25) +
+  theme_minimal() +
+  labs(title = "Relation between teacher experience and math scores",
+       subtitle = "Separate regression lines displayed by free/reduced price lunch status",
+       x = "Teacher Experience (years)",
+       y = "Total Math Scale Scores",
+       color = "Lunch Status")
+
+plot + theme(legend.position = "bottom") +
+  scale_fill_discrete(name = "Lunch Status") +
+  scale_color_hue(labels = c("Free/Reduced Price Meals", "Paid Meals"))
+
+```
+
